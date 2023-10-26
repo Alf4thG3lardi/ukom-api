@@ -8,9 +8,10 @@ use App\Http\Controllers\CommentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::apiResource("client", ClientController::class);
-Route::apiResource("project", ProjectController::class);
-Route::apiResource("task", TaskController::class);
-Route::apiResource("comment", CommentController::class);
-Route::apiResource("attachment", AttachmentController::class);
-
+Route::prefix('v1')->group(function() {
+	Route::apiResource("client", ClientController::class);
+	Route::apiResource("project", ProjectController::class);
+	Route::apiResource("task", TaskController::class);
+	Route::apiResource("comment", CommentController::class);
+	Route::apiResource("attachment", AttachmentController::class);
+})
